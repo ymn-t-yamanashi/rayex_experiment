@@ -13,11 +13,11 @@ defmodule Rayex3d do
   end
 
   defp main_loop(true, c) do
-    c = if c > 10, do: -10.0 ,else: c + 0.1
+    c = if c > 10, do: -10.0, else: c + 0.1
 
     begin_drawing()
     draw(c)
-    #draw_line(10, 10, 50, 51, %{r: 255, g: 161, b: 0, a: 255})
+    # draw_line(10, 10, 50, 51, %{r: 255, g: 161, b: 0, a: 255})
     end_drawing()
 
     Process.sleep(10)
@@ -28,6 +28,7 @@ defmodule Rayex3d do
 
   defp draw(c) do
     clear_background(@color_white)
+
     camera = %S.Camera3D{
       position: %S.Vector3{x: 10.0, y: 10.0, z: 10.0},
       target: %S.Vector3{x: 0.0, y: 0.0, z: 0.0},
@@ -36,22 +37,18 @@ defmodule Rayex3d do
       # perspective projection
       projection: 0
     }
+
     update_camera(camera, 4)
 
     cube_position = %S.Vector3{x: c, y: c, z: 1.0}
     begin_mode_3d(camera)
-    #draw_cube_wires(cube_position, 2.0, 2.0, 2.0, @color_gray)
+    # draw_cube_wires(cube_position, 2.0, 2.0, 2.0, @color_gray)
     draw_cube(cube_position, 1.0, 1.0, 1.0, @color_gray)
 
     ray = get_mouse_position() |> get_mouse_ray(camera)
     draw_ray(ray, @color_maroon)
 
-
     draw_grid(10, 1.0)
     end_mode_3d()
-
-
-
   end
-
 end
