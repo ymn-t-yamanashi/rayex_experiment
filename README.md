@@ -1,21 +1,17 @@
-# RayexExperiment
+# ビルドメモ
 
-**TODO: Add description**
+ライブラリインストール参考
 
-## Installation
+https://dev.to/andevr/get-started-with-rayexraylib-for-elixir-53gl
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `rayex_experiment` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [
-    {:rayex_experiment, "~> 0.1.0"}
-  ]
-end
+deps/rayex/c_src/rayex/rayex.c
+```diff
+UNIFEX_TERM is_sound_ready(UnifexEnv *env, UnifexPayload *payload) {
+  Sound sound = get_sound_unifex_payload(env, payload);
+-  bool res = IsSoundReady(sound);
++  bool res =  false;
+  return is_sound_ready_result(env, res);
+}
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/rayex_experiment>.
-
+に変更でビルドできる
