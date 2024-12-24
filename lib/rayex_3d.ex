@@ -7,7 +7,7 @@ defmodule Rayex3d do
 
   def main() do
     init_window(800, 800, "window name")
-    set_target_fps(240)
+    set_target_fps(10)
     main_loop(true, -10.0)
   end
 
@@ -37,7 +37,19 @@ defmodule Rayex3d do
     cube_position = %S.Vector3{x: c, y: c, z: 1.0}
     begin_mode_3d(camera)
     draw_cube(cube_position, 0.1, 0.1, 0.1, @color_gray)
+
+    1..10
+    |> Enum.each(fn _ ->
+      cube()
+    end)
+
     draw_grid(100, 1.0)
     end_mode_3d()
+  end
+
+  def cube() do
+    r = Enum.random(-100..100) * 0.1
+    cube_position = %S.Vector3{x: r * 2, y: 1.0, z: r}
+    draw_cube(cube_position, 0.1, 0.1, 0.1, @color_gray)
   end
 end
