@@ -23,7 +23,7 @@ defmodule Rayex3d do
   defp main_loop(_, _), do: nil
 
   defp draw(c) do
-    clear_background(@color_white)
+    # clear_background(@color_white)
 
     camera = %S.Camera3D{
       position: %S.Vector3{x: 10.0, y: 10.0, z: 10.0},
@@ -48,8 +48,10 @@ defmodule Rayex3d do
   end
 
   def cube() do
-    r = Enum.random(-100..100) * 0.1
-    cube_position = %S.Vector3{x: r * 2, y: 1.0, z: r}
+    x = Enum.random(-100..100) * 0.1
+    y = Enum.random(-100..100) * 0.1
+    z = Enum.random(-100..100) * 0.1
+    cube_position = %S.Vector3{x: x, y: y, z: z}
     draw_cube(cube_position, 0.1, 0.1, 0.1, @color_gray)
   end
 end
