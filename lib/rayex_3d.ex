@@ -23,13 +23,13 @@ defmodule Rayex3d do
   defp main_loop(_, _), do: nil
 
   defp draw(c) do
-    # clear_background(@color_white)
+    clear_background(@color_white)
 
     camera = %S.Camera3D{
       position: %S.Vector3{x: 10.0, y: 10.0, z: 10.0},
-      target: %S.Vector3{x: 0.0, y: 0.0, z: 0.0},
+      target: %S.Vector3{x: c, y: 0.0, z: 0.0},
       up: %S.Vector3{x: 0.0, y: 1.0, z: 0.0},
-      fovy: 45.0,
+      fovy: 45.0 + c,
       projection: 0
     }
 
