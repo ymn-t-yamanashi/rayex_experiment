@@ -7,12 +7,12 @@ defmodule Rayex3d do
 
   def main() do
     init_window(800, 800, "window name")
-    set_target_fps(10)
+    set_target_fps(100)
     main_loop(true, -10.0)
   end
 
   defp main_loop(true, c) do
-    c = if c > 10, do: -10.0, else: c + 0.1
+    c = if c > 100, do: -100.0, else: c + 0.1
 
     begin_drawing()
     draw(c)
@@ -38,7 +38,7 @@ defmodule Rayex3d do
     begin_mode_3d(camera)
     draw_cube(cube_position, 0.1, 0.1, 0.1, @color_gray)
 
-    1..10
+    1..100
     |> Enum.each(fn _ ->
       cube()
     end)
