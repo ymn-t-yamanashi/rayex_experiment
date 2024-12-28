@@ -38,7 +38,7 @@ defmodule Rayex3d do
     begin_mode_3d(camera)
     draw_cube(cube_position, 0.1, 0.1, 0.1, @color_gray)
 
-    1..100
+    1..10
     |> Enum.each(fn _ ->
       cube()
     end)
